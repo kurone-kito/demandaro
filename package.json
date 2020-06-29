@@ -1,0 +1,54 @@
+{
+  "name": "@kurone-kito/demandaro",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Practice of client-only diagnostic app",
+  "license": "Apache-2.0",
+  "author": "kurone-kito <krone@kit.black>",
+  "bugs": {
+    "url": "https://github.com/kurone-kito/demandaro/issues"
+  },
+  "homepage": "https://github.com/kurone-kito/demandaro#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kurone-kito/demandaro.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"TODO: TESTS ARE NOT IMPLEMENTED\" && exit 1"
+  },
+  "engines": {
+    "node": ">=14.4"
+  },
+  "dependencies": {
+    "gatsby": "^2.23.12",
+    "js-yaml": "^3.14.0",
+    "lodash.noop": "^3.0.1",
+    "query-string": "^6.13.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "unstated-next": "^1.1.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^3.12.5",
+    "@types/lodash.noop": "^3.0.6",
+    "@types/react": "^16.9.41",
+    "@types/react-dom": "^16.9.8",
+    "@typescript-eslint/eslint-plugin": "^3.5.0",
+    "@typescript-eslint/parser": "^3.5.0",
+    "eslint": "^7.3.1",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-import-resolver-typescript": "^2.0.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.2",
+    "eslint-plugin-react-hooks": "^4.0.4",
+    "gatsby-plugin-alias-imports": "^1.0.5",
+    "prettier": "^2.0.5",
+    "typescript": "^3.9.5"
+  }
+}

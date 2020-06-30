@@ -17,6 +17,12 @@
     "access": "public"
   },
   "scripts": {
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "develop": "gatsby develop",
+    "lint": "eslint --fix",
+    "serve": "gatsby serve",
+    "start": "npm run develop",
     "test": "echo \"TODO: TESTS ARE NOT IMPLEMENTED\" && exit 1"
   },
   "engines": {

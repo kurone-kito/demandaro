@@ -1,0 +1,52 @@
+env:
+  es6: true
+  es2020: true
+extends:
+  # I want to know the best practices for the settings here.
+  # I don't know it, but this so many extends are enough to make it feel non-exemplary.
+  - eslint:recommended
+  - plugin:react/recommended
+  - airbnb
+  - plugin:@typescript-eslint/recommended
+  - plugin:prettier/recommended
+  - prettier/@typescript-eslint
+parser: '@typescript-eslint/parser'
+parserOptions:
+  ecmaVersion: 2020
+  sourceType: module
+plugins:
+  - '@typescript-eslint'
+  - import
+  - prettier
+  - react
+root: true
+rules:
+  '@typescript-eslint/explicit-function-return-type':
+    - 'off'
+  import/extensions:
+    - error
+    - ignorePackages
+    - ts: never
+    - tsx: never
+  import/no-extraneous-dependencies:
+    - error
+    - devDependencies:
+        - '**/*.config.?s'
+        - '**/*.spec.?s'
+  react/jsx-filename-extension:
+    - error
+    - extensions:
+        - .jsx
+        - .tsx
+  react/prop-types:
+    - 'off'
+settings:
+  import/resolver:
+    node:
+      extensions:
+        - .js
+        - .jsx
+        - .ts
+        - .tsx
+    typescript:
+      directory: .

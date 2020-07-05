@@ -8,6 +8,7 @@ import ToggleResultButton from '~/components/organisms/ToggleResultButton';
 import { UsecaseAndAnswer } from '~/hooks/useUsecaseAndAnswer';
 
 export interface DOMProps {
+  /** Do not use this property. */
   children?: never;
   fail?: boolean;
   loaded?: boolean;

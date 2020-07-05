@@ -3,6 +3,7 @@ import React from 'react';
 import { SelectionItem } from '~/logic/entities/selection';
 
 export interface ItemProps {
+  /** Do not use this property. */
   children?: never;
   name: string;
   onChange?: (selected: SelectionItem) => void;

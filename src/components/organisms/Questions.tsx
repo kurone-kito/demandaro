@@ -10,6 +10,7 @@ export interface OnChangeProps extends SelectionItem {
 }
 
 export interface DOMProps {
+  /** Do not use this property. */
   children?: never;
   onChangeFactory?: (index: number) => (selected: SelectionItem) => void;
   questions: readonly CombinedQuestion[];

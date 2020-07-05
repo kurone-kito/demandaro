@@ -17,7 +17,8 @@
     "access": "public"
   },
   "scripts": {
-    "build": "gatsby build",
+    "build": "rimraf public && gatsby build",
+    "build:gh": "npm run build -- --prefix-paths --no-uglify",
     "clean": "gatsby clean",
     "develop": "gatsby develop",
     "lint": "eslint --fix",
@@ -55,6 +56,7 @@
     "eslint-plugin-react-hooks": "^4.0.4",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
     "typescript": "^3.9.5"
   }
 }

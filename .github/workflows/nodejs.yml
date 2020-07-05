@@ -1,0 +1,32 @@
+name: CI on push
+on:
+  - push
+jobs:
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    name: Build and testing production code
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version:
+          - 14.x
+    steps:
+      - uses: actions/checkout@master
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@master
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Use caches for dependencies
+        uses: actions/cache@master
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - run: npm ci
+      - run: npm run build:gh
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public

@@ -5,10 +5,10 @@
  */
 
 module.exports = {
-  /* Your site config here */
+  pathPrefix: '/demandaro',
   plugins: [
     {
-      resolve: `gatsby-plugin-alias-imports`,
+      resolve: 'gatsby-plugin-alias-imports',
       options: { alias: { '~': 'src' }, extensions: ['ts', 'tsx'] },
     },
   ],

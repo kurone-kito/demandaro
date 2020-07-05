@@ -17,7 +17,8 @@
     "access": "public"
   },
   "scripts": {
-    "build": "gatsby build",
+    "build": "rimraf public && gatsby build",
+    "build:gh": "npm run build -- --prefix-paths --no-uglify",
     "clean": "gatsby clean",
     "develop": "gatsby develop",
     "lint": "eslint --fix",

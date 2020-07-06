@@ -6464,6 +6464,9 @@ Questions_Container.displayName = 'Questions';
 /* harmony default export */ var Questions = (Questions_Container);
 // CONCATENATED MODULE: ./src/components/atoms/Button.tsx
 
+/** Props for the button component. */
+
+/** The button component. */
 var Button_Component = function Component(_ref) {
   var children = _ref.children,
       disabled = _ref.disabled,
@@ -10194,4 +10197,4 @@ module.exports = new Type('tag:yaml.org,2002:int', {
 /***/ })
 
 }]);
-//# sourceMappingURL=component---src-pages-index-tsx-28a25e1e3b45daa8cd17.js.map
+//# sourceMappingURL=component---src-pages-index-tsx-5914775009629e7fb414.js.map

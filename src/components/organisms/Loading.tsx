@@ -2,6 +2,7 @@ import React from 'react';
 import { UsecaseAndAnswer } from '~/hooks/useUsecaseAndAnswer';
 
 export interface DOMProps {
+  /** Do not use this property. */
   children?: never;
   open?: boolean;
 }

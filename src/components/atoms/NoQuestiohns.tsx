@@ -1,6 +1,7 @@
 import React from 'react';
 
 export interface Props {
+  /** Do not use this property. */
   children?: never;
 }
 

@@ -1,14 +1,19 @@
 import React from 'react';
 import NoSelection from '~/components/atoms/NoSelection';
-import Selection, { ItemProps } from '~/components/atoms/Selection';
-import { SelectionItem } from '~/logic/entities/selection';
+import Selection, {
+  SelectionItemPropsBase,
+} from '~/components/atoms/Selection';
+import type { SelectionItem } from '~/logic/entities/selection';
 
-export interface Props extends ItemProps {
+/** Props for the `Selections` component. */
+export interface Props extends SelectionItemPropsBase {
+  /** The selections information. */
   selections: readonly SelectionItem[];
 }
 
+/** A Component for expressing a list of selection. */
 export const Component: React.FC<Props> = ({
-  name,
+  sentence,
   onChange,
   readOnly,
   selections,
@@ -19,7 +24,7 @@ export const Component: React.FC<Props> = ({
         <Selection
           body={body}
           key={body}
-          name={name}
+          sentence={sentence}
           onChange={onChange}
           readOnly={readOnly}
           score={score}

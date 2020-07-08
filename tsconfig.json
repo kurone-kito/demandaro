@@ -4,7 +4,7 @@
     "baseUrl": ".",
     "esModuleInterop": true,
     "jsx": "preserve",
-    "lib": ["dom"],
+    "lib": ["dom", "ES2020.Promise"],
     "module": "commonjs",
     "moduleResolution": "node",
     "noEmit": true,

@@ -1,19 +1,26 @@
 import React from 'react';
 import Button, { Props as ButtonProps } from '~/components/atoms/Button';
-import { UsecaseAndAnswer } from '~/hooks/useUsecaseAndAnswer';
+import { CombinedState } from '~/hooks/useCombinedState';
 
+/** Props for the `ToggleResultButton` component. */
 export interface Props extends ButtonProps {
-  condition: (result: boolean) => boolean;
+  /**
+   * An expression for deciding whether to disable the button.
+   *
+   * An argument stores whether to visible the result.
+   */
+  disabledWith: (result: boolean) => boolean;
 }
 
-const Container: React.FC<Props> = ({ children, condition }) => {
-  const { result, toggleResult } = UsecaseAndAnswer.useContainer();
+/** A button to toggle the resulting visibility. */
+const Container: React.FC<Props> = ({ children, disabledWith }) => {
+  const { result, toggleResult } = CombinedState.useContainer();
   return (
-    <Button disabled={condition(result)} onClick={toggleResult}>
+    <Button disabled={disabledWith(result)} onClick={toggleResult}>
       {children}
     </Button>
   );
 };
-Container.displayName = 'ToggleResult';
+Container.displayName = 'ToggleResultButton';
 
 export default Container;

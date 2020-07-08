@@ -1,6 +1,6 @@
 import React from 'react';
 
-/** Props for the button component. */
+/** Props for the `Button` component. */
 export interface Props {
   /** Whether to disable. */
   disabled?: boolean;

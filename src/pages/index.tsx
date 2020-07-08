@@ -1,11 +1,11 @@
 import React from 'react';
 import Karte from '~/components/templates/Karte';
-import { UsecaseAndAnswer } from '~/hooks/useUsecaseAndAnswer';
+import { CombinedState } from '~/hooks/useCombinedState';
 
 const Component: React.FC = () => (
-  <UsecaseAndAnswer.Provider>
+  <CombinedState.Provider>
     <Karte />
-  </UsecaseAndAnswer.Provider>
+  </CombinedState.Provider>
 );
 Component.displayName = 'App';
 

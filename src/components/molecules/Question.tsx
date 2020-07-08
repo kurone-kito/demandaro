@@ -1,20 +1,22 @@
 import React from 'react';
 import QuestionFrame from '~/components/atoms/QuestionFrame';
-import { ItemProps } from '~/components/atoms/Selection';
+import type { SelectionItemPropsBase } from '~/components/atoms/Selection';
 import Selections from '~/components/molecules/Selections';
-import { CombinedQuestion } from '~/logic/entities/question';
+import type { CombinedQuestion } from '~/logic/entities/question';
 
-export type Props = CombinedQuestion & Omit<ItemProps, 'name'>;
+/** Props for the `Question` component. */
+export type Props = CombinedQuestion & Omit<SelectionItemPropsBase, 'sentence'>;
 
+/** A Question component. */
 export const Component: React.FC<Props> = ({
   body,
   onChange,
   readOnly,
   selections,
 }) => (
-  <QuestionFrame body={body}>
+  <QuestionFrame sentence={body}>
     <Selections
-      name={body}
+      sentence={body}
       onChange={onChange}
       readOnly={readOnly}
       selections={selections}

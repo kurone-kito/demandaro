@@ -5,7 +5,7 @@ import Loading from '~/components/organisms/Loading';
 import Questions from '~/components/organisms/Questions';
 import Result from '~/components/organisms/Result';
 import ToggleResultButton from '~/components/organisms/ToggleResultButton';
-import { UsecaseAndAnswer } from '~/hooks/useUsecaseAndAnswer';
+import { CombinedState } from '~/hooks/useCombinedState';
 
 export interface DOMProps {
   /** Do not use this property. */
@@ -24,7 +24,7 @@ export const DOM: React.FC<DOMProps> = ({ fail, loaded, result }) => (
         {result ? (
           <Result />
         ) : (
-          <ToggleResultButton condition={(result) => result}>
+          <ToggleResultButton disabledWith={(result) => result}>
             結果を見る！
           </ToggleResultButton>
         )}
@@ -37,7 +37,7 @@ export const DOM: React.FC<DOMProps> = ({ fail, loaded, result }) => (
 DOM.displayName = 'KarteDOM';
 
 const Container: React.FC = () => {
-  const { fail, loaded, result } = UsecaseAndAnswer.useContainer();
+  const { fail, loaded, result } = CombinedState.useContainer();
   return <DOM fail={fail} loaded={loaded} result={result} />;
 };
 Container.displayName = 'Karte';

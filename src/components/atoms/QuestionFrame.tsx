@@ -1,10 +1,13 @@
 import React from 'react';
 
+/** Props for the `QuestionFrame` component. */
 export interface Props {
-  body: string;
+  /** A sentence for the question. */
+  sentence: string;
 }
 
-export const Component: React.FC<Props> = ({ body, children }) => (
+/** The button component. */
+export const Component: React.FC<Props> = ({ sentence: body, children }) => (
   <li>
     <p>{body}</p>
     {children}

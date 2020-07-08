@@ -1,25 +1,33 @@
 import noop from 'lodash.noop';
 import React from 'react';
-import { SelectionItem } from '~/logic/entities/selection';
+import type { SelectionItem } from '~/logic/entities/selection';
 
-export interface ItemProps {
-  /** Do not use this property. */
-  children?: never;
-  name: string;
-  onChange?: (selected: SelectionItem) => void;
-  readOnly?: boolean;
-}
-
-type Props = SelectionItem & ItemProps;
-
+/** Props for the `SelectionDOM` component. */
 export interface DOMProps extends Props {
+  /** The object reference for the input field. */
   inputRef?: React.RefObject<HTMLInputElement>;
 }
 
+/** Props for the `Selection` component. */
+export type Props = SelectionItem & SelectionItemPropsBase;
+
+/** Base props for related selection components */
+export interface SelectionItemPropsBase {
+  /** Do not use this property. */
+  children?: never;
+  /** A sentence for the question. */
+  sentence: string;
+  /** Callback to call when clicked. */
+  onChange?: (selected: SelectionItem) => void;
+  /** Whether to read-only. */
+  readOnly?: boolean;
+}
+
+/** The DOM structure for the radio button. */
 export const DOM: React.FC<DOMProps> = ({
   body,
   inputRef,
-  name,
+  sentence: name,
   onChange,
   readOnly,
   score,
@@ -45,6 +53,7 @@ export const DOM: React.FC<DOMProps> = ({
 );
 DOM.displayName = 'SelectionDOM';
 
+/** The custom hook for resetting selected. */
 const useInputRefForReset = (readOnly?: boolean) => {
   const inputRef = React.useRef<HTMLInputElement>(null);
   React.useEffect(() => {
@@ -55,9 +64,10 @@ const useInputRefForReset = (readOnly?: boolean) => {
   return inputRef;
 };
 
+/** The radio button which is integrated a hook. */
 const Container: React.FC<Props> = ({
   body,
-  name,
+  sentence: name,
   onChange,
   readOnly,
   score,
@@ -65,7 +75,7 @@ const Container: React.FC<Props> = ({
   <DOM
     body={body}
     inputRef={useInputRefForReset(readOnly)}
-    name={name}
+    sentence={name}
     onChange={onChange}
     readOnly={readOnly}
     score={score}

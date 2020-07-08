@@ -1,13 +1,13 @@
 import React from 'react';
 import ToggleResultButton from '~/components/organisms/ToggleResultButton';
-import { UsecaseAndAnswer } from '~/hooks/useUsecaseAndAnswer';
+import { CombinedState } from '~/hooks/useCombinedState';
 
 export const DOM: React.FC = ({ children }) => (
   <summary>
     <h2>結果</h2>
     {!!children && <p>{children}</p>}
     <div>
-      <ToggleResultButton condition={(result) => !result}>
+      <ToggleResultButton disabledWith={(result) => !result}>
         もう一度診断する！
       </ToggleResultButton>
     </div>
@@ -15,10 +15,12 @@ export const DOM: React.FC = ({ children }) => (
 );
 DOM.displayName = 'ResultDOM';
 
-const Container: React.FC = () => {
-  const { answers, getResult } = UsecaseAndAnswer.useContainer();
-  return <DOM>{getResult?.(answers)}</DOM>;
+export const useResult = () => {
+  const { answers, getResult } = CombinedState.useContainer();
+  return getResult?.(answers);
 };
+
+const Container: React.FC = () => <DOM>{useResult()}</DOM>;
 Container.displayName = 'Result';
 
 export default Container;

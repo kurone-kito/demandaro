@@ -1,11 +1,12 @@
 import React from 'react';
 import { createContainer } from 'unstated-next';
-import { getKarteURLs, getUsecaseAsync } from '~/logic/loader';
-import { UseCase } from '~/logic/usecase';
+import { getUsecaseAsync } from '~/logic/utils/loader';
+import { getKarteURLs } from '~/logic/utils/path';
+import type { UseCase } from '~/logic/usecase';
 import useUpdateArrayState from './useUpdateArrayState';
 import useWindow from './useWindow';
 
-export interface UsecaseAndAnserType extends Partial<UseCase> {
+export interface Results extends Partial<UseCase> {
   answers: number[];
   fail: boolean;
   loaded: boolean;
@@ -14,7 +15,7 @@ export interface UsecaseAndAnserType extends Partial<UseCase> {
   updateAnswer: (index: number, value: number) => void;
 }
 
-const useUsecaseAndAnswer = (): UsecaseAndAnserType => {
+const useUsecaseAndAnswer = (): Results => {
   const [usecase, setUsecase] = React.useState<Readonly<UseCase> | undefined>();
   const [answers, setAnswers] = React.useState<number[]>([]);
   const [result, setResult] = React.useState<boolean>(false);
